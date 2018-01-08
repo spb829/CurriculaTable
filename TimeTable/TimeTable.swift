@@ -179,24 +179,25 @@ public class TimeTable: UIView {
                 subview.removeFromSuperview()
             }
         }
+        
+        let width = averageWidth - rectEdgeInsets.left - rectEdgeInsets.right
+        let height = averageHeight - rectEdgeInsets.top - rectEdgeInsets.bottom
+        
         for (index, timeTableItem) in timeTableItems.enumerated() {
             let weekdayIndex = (timeTableItem.weekday.rawValue - firstWeekday.rawValue + 7) % 7
             let x = widthOfPeriodSymbols + averageWidth * CGFloat(weekdayIndex) + rectEdgeInsets.left
-            let y = heightOfWeekdaySymbols + averageHeight * CGFloat(timeTableItem.startPeriod - 1) + rectEdgeInsets.top
-            let width = averageWidth - rectEdgeInsets.left - rectEdgeInsets.right
-            let height = averageHeight * CGFloat(timeTableItem.endPeriod - timeTableItem.startPeriod + 1) - rectEdgeInsets.top - rectEdgeInsets.bottom
+            let y = heightOfWeekdaySymbols + averageHeight * CGFloat(timeTableItem.start - 1) + rectEdgeInsets.top
             let view = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
             view.backgroundColor = timeTableItem.bgColor
             view.layer.cornerRadius = cornerRadius
             view.layer.masksToBounds = true
             
             let label = UILabel(frame: CGRect(x: textEdgeInsets.left, y: textEdgeInsets.top, width: view.frame.width - textEdgeInsets.left - textEdgeInsets.right, height: view.frame.height - textEdgeInsets.top - textEdgeInsets.bottom))
-            var name = timeTableItem.name
+            var title = timeTableItem.title
             if maximumNameLength > 0 {
-                name.truncate(maximumNameLength)
+                title.truncate(maximumNameLength)
             }
-            let attrStr = NSMutableAttributedString(string: name + "\n\n" + timeTableItem.place, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: textFontSize)])
-            attrStr.setAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: textFontSize)], range: NSRange(0..<name.count))
+            let attrStr = NSMutableAttributedString(string: title, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: textFontSize)])
             label.attributedText = attrStr
             label.textColor = timeTableItem.textColor
             label.textAlignment = textAlignment

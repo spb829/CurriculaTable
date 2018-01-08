@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/CurriculaTable.svg?style=flat)](http://cocoapods.org/pods/CurriculaTable)
 [![Platform](https://img.shields.io/cocoapods/p/CurriculaTable.svg?style=flat)](http://cocoapods.org/pods/CurriculaTable)
 
-A flexible timetable written in Swift.
+A simple timetable written in Swift.
 forked from [CurriculaTable](https://github.com/yzyzsun/CurriculaTable)
 
 ## Installation
@@ -29,4 +29,4 @@ You can refer to `TimeTableDemo`. Details are to be supplemented.
 
 ## Screenshot
 
-![Screenshot](screenshot!.png)
+![Screenshot](screenshot.png)
