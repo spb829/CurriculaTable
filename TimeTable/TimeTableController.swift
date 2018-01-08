@@ -3,6 +3,7 @@
 //  TimeTable
 //
 //  Created by Sun Yaozhu on 2016-09-10.
+//  Updated by Eric Park on 2018-01-09.
 //  Copyright © 2016 Sun Yaozhu. All rights reserved.
 //
 
@@ -12,7 +13,7 @@ private let reuseIdentifier = "Cell"
 
 class TimeTableController: UIViewController {
     
-    weak var curriculaTable: TimeTable!
+    weak var timeTable: TimeTable!
     
     weak var collectionView: UICollectionView! {
         didSet {
@@ -25,19 +26,19 @@ class TimeTableController: UIViewController {
 extension TimeTableController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (curriculaTable.numberOfPeriods + 1) * 8
+        return (timeTable.numberOfPeriods + 1) * 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TimeTableCell
-        cell.backgroundColor = curriculaTable.symbolsBgColor
-        cell.layer.borderWidth = curriculaTable.borderWidth
-        cell.layer.borderColor = curriculaTable.borderColor.cgColor
-        cell.textLabel.font = UIFont.systemFont(ofSize: curriculaTable.symbolsFontSize)
+        cell.backgroundColor = timeTable.symbolsBgColor
+        cell.layer.borderWidth = timeTable.borderWidth
+        cell.layer.borderColor = timeTable.borderColor.cgColor
+        cell.textLabel.font = UIFont.systemFont(ofSize: timeTable.symbolsFontSize)
         if indexPath.row == 0 {
             cell.textLabel.text = ""
         } else if indexPath.row < 8 {
-            cell.textLabel.text = curriculaTable.weekdaySymbols[indexPath.row - 1]
+            cell.textLabel.text = timeTable.weekdaySymbols[indexPath.row - 1]
         } else if indexPath.row % 8 == 0 {
             cell.textLabel.text = String(indexPath.row / 8)
         } else {
@@ -53,13 +54,13 @@ extension TimeTableController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {
-            return CGSize(width: curriculaTable.widthOfPeriodSymbols, height: curriculaTable.heightOfWeekdaySymbols)
+            return CGSize(width: timeTable.widthOfPeriodSymbols, height: timeTable.heightOfWeekdaySymbols)
         } else if indexPath.row < 8 {
-            return CGSize(width: curriculaTable.averageWidth, height: curriculaTable.heightOfWeekdaySymbols)
+            return CGSize(width: timeTable.averageWidth, height: timeTable.heightOfWeekdaySymbols)
         } else if indexPath.row % 8 == 0 {
-            return CGSize(width: curriculaTable.widthOfPeriodSymbols, height: curriculaTable.averageHeight)
+            return CGSize(width: timeTable.widthOfPeriodSymbols, height: timeTable.averageHeight)
         } else {
-            return CGSize(width: curriculaTable.averageWidth, height: curriculaTable.averageHeight)
+            return CGSize(width: timeTable.averageWidth, height: timeTable.averageHeight)
         }
     }
     

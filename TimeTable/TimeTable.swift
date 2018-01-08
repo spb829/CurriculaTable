@@ -34,7 +34,7 @@ public class TimeTable: UIView {
         }
     }
     
-    public var curricula = [TimeTableItem]() {
+    public var timeTableItems = [TimeTableItem]() {
         didSet {
             drawTimeTable()
         }
@@ -156,7 +156,7 @@ public class TimeTable: UIView {
     }
     
     private func initialize() {
-        controller.curriculaTable = self
+        controller.timeTable = self
         controller.collectionView = collectionView
         
         collectionView.dataSource = controller
@@ -179,30 +179,30 @@ public class TimeTable: UIView {
                 subview.removeFromSuperview()
             }
         }
-        for (index, curriculum) in curricula.enumerated() {
-            let weekdayIndex = (curriculum.weekday.rawValue - firstWeekday.rawValue + 7) % 7
+        for (index, timeTableItem) in timeTableItems.enumerated() {
+            let weekdayIndex = (timeTableItem.weekday.rawValue - firstWeekday.rawValue + 7) % 7
             let x = widthOfPeriodSymbols + averageWidth * CGFloat(weekdayIndex) + rectEdgeInsets.left
-            let y = heightOfWeekdaySymbols + averageHeight * CGFloat(curriculum.startPeriod - 1) + rectEdgeInsets.top
+            let y = heightOfWeekdaySymbols + averageHeight * CGFloat(timeTableItem.startPeriod - 1) + rectEdgeInsets.top
             let width = averageWidth - rectEdgeInsets.left - rectEdgeInsets.right
-            let height = averageHeight * CGFloat(curriculum.endPeriod - curriculum.startPeriod + 1) - rectEdgeInsets.top - rectEdgeInsets.bottom
+            let height = averageHeight * CGFloat(timeTableItem.endPeriod - timeTableItem.startPeriod + 1) - rectEdgeInsets.top - rectEdgeInsets.bottom
             let view = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
-            view.backgroundColor = curriculum.bgColor
+            view.backgroundColor = timeTableItem.bgColor
             view.layer.cornerRadius = cornerRadius
             view.layer.masksToBounds = true
             
             let label = UILabel(frame: CGRect(x: textEdgeInsets.left, y: textEdgeInsets.top, width: view.frame.width - textEdgeInsets.left - textEdgeInsets.right, height: view.frame.height - textEdgeInsets.top - textEdgeInsets.bottom))
-            var name = curriculum.name
+            var name = timeTableItem.name
             if maximumNameLength > 0 {
                 name.truncate(maximumNameLength)
             }
-            let attrStr = NSMutableAttributedString(string: name + "\n\n" + curriculum.place, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: textFontSize)])
+            let attrStr = NSMutableAttributedString(string: name + "\n\n" + timeTableItem.place, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: textFontSize)])
             attrStr.setAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: textFontSize)], range: NSRange(0..<name.count))
             label.attributedText = attrStr
-            label.textColor = curriculum.textColor
+            label.textColor = timeTableItem.textColor
             label.textAlignment = textAlignment
             label.numberOfLines = 0
             label.tag = index
-            label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(curriculumTapped)))
+            label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(timeTableItemTapped)))
             label.isUserInteractionEnabled = true
             
             view.addSubview(label)
@@ -210,9 +210,9 @@ public class TimeTable: UIView {
         }
     }
     
-    @objc func curriculumTapped(_ sender: UITapGestureRecognizer) {
-        let curriculum = curricula[(sender.view as! UILabel).tag]
-        curriculum.tapHandler(curriculum)
+    @objc func timeTableItemTapped(_ sender: UITapGestureRecognizer) {
+        let timeTableItem = timeTableItems[(sender.view as! UILabel).tag]
+        timeTableItem.tapHandler(timeTableItem)
     }
     
 }

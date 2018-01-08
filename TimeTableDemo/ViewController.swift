@@ -11,13 +11,13 @@ import TimeTable
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var curriculaTable: TimeTable!
+    @IBOutlet weak var timeTable: TimeTable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let handler = { (curriculum: TimeTableItem) in
-            print(curriculum.name, curriculum.identifier)
+        let handler = { (timeTableItem: TimeTableItem) in
+            print(timeTableItem.name, timeTableItem.identifier)
         }
         
         let infoSecA = TimeTableItem(name: "信息安全原理", place: "紫金港西1-303", weekday: .monday, startPeriod: 1, endPeriod: 2, textColor: UIColor.white, bgColor: UIColor(red: 1.0, green: 0.73, blue: 0.0, alpha: 1.0), identifier: "(2015-2016-2)-21190850", tapHandler: handler)
@@ -45,14 +45,14 @@ class ViewController: UIViewController {
         
         let asianEco = TimeTableItem(name: "亚洲经济发展", place: "紫金港西1-208", weekday: .monday, startPeriod: 11, endPeriod: 13, textColor: UIColor.white, bgColor: UIColor(red: 0.46, green: 0.82, blue: 0.0, alpha: 1.0), identifier: "(2015-2016-2)-241H0020", tapHandler: handler)
         
-        curriculaTable.curricula = [infoSecA, infoSecB, databaseA, databaseB, comOrgA, comOrgB, dataStructureA, dataStructureB, paraAlgoA, paraAlgoB, maoismA, maoismB, nihongoA, nihongoB, radio, asianEco]
+        timeTable.curricula = [infoSecA, infoSecB, databaseA, databaseB, comOrgA, comOrgB, dataStructureA, dataStructureB, paraAlgoA, paraAlgoB, maoismA, maoismB, nihongoA, nihongoB, radio, asianEco]
         
-        curriculaTable.bgColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1.0)
-        curriculaTable.borderWidth = 0.5
-        curriculaTable.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
-        curriculaTable.cornerRadius = 5
-        curriculaTable.textEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
-        curriculaTable.maximumNameLength = 12
+        timeTable.bgColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1.0)
+        timeTable.borderWidth = 0.5
+        timeTable.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+        timeTable.cornerRadius = 5
+        timeTable.textEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+        timeTable.maximumNameLength = 12
     }
     
 }
