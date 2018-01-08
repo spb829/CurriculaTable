@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D8D063F1D8453FC00956C0C"
-               BuildableName = "CurriculaTableDemo.app"
-               BlueprintName = "CurriculaTableDemo"
-               ReferencedContainer = "container:CurriculaTable.xcodeproj">
+               BlueprintIdentifier = "9D8D061B1D83C7AD00956C0C"
+               BuildableName = "TimeTable.framework"
+               BlueprintName = "TimeTable"
+               ReferencedContainer = "container:TimeTable.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,15 +30,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9D8D063F1D8453FC00956C0C"
-            BuildableName = "CurriculaTableDemo.app"
-            BlueprintName = "CurriculaTableDemo"
-            ReferencedContainer = "container:CurriculaTable.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -53,16 +44,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9D8D063F1D8453FC00956C0C"
-            BuildableName = "CurriculaTableDemo.app"
-            BlueprintName = "CurriculaTableDemo"
-            ReferencedContainer = "container:CurriculaTable.xcodeproj">
+            BlueprintIdentifier = "9D8D061B1D83C7AD00956C0C"
+            BuildableName = "TimeTable.framework"
+            BlueprintName = "TimeTable"
+            ReferencedContainer = "container:TimeTable.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -72,16 +62,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9D8D063F1D8453FC00956C0C"
-            BuildableName = "CurriculaTableDemo.app"
-            BlueprintName = "CurriculaTableDemo"
-            ReferencedContainer = "container:CurriculaTable.xcodeproj">
+            BlueprintIdentifier = "9D8D061B1D83C7AD00956C0C"
+            BuildableName = "TimeTable.framework"
+            BlueprintName = "TimeTable"
+            ReferencedContainer = "container:TimeTable.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

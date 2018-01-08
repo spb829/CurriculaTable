@@ -1,41 +1,42 @@
 //
-//  CurriculaTable.swift
-//  CurriculaTable
+//  TimeTable.swift
+//  TimeTable
 //
 //  Created by Sun Yaozhu on 2016-09-10.
+//  Updated by Eric Park on 2018-01-09.
 //  Copyright © 2016 Sun Yaozhu. All rights reserved.
 //
 
 import UIKit
 
-public class CurriculaTable: UIView {
+public class TimeTable: UIView {
     
-    private let controller = CurriculaTableController()
+    private let controller = TimeTableController()
     private let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    public var weekdaySymbolType = CurriculaTableWeekdaySymbolType.short {
+    public var weekdaySymbolType = TimeTableWeekdaySymbolType.short {
         didSet {
             collectionView.reloadData()
         }
     }
     
-    public var firstWeekday = CurriculaTableWeekday.monday {
+    public var firstWeekday = TimeTableWeekday.monday {
         didSet {
             collectionView.reloadData()
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
     public var numberOfPeriods = 13 {
         didSet {
             collectionView.reloadData()
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
-    public var curricula = [CurriculaTableItem]() {
+    public var curricula = [TimeTableItem]() {
         didSet {
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
@@ -60,14 +61,14 @@ public class CurriculaTable: UIView {
     public var heightOfWeekdaySymbols = CGFloat(28) {
         didSet {
             collectionView.reloadData()
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
     public var widthOfPeriodSymbols = CGFloat(32) {
         didSet {
             collectionView.reloadData()
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
@@ -85,37 +86,37 @@ public class CurriculaTable: UIView {
     
     public var cornerRadius = CGFloat(0) {
         didSet {
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
     public var rectEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet {
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
     public var textEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet {
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
     public var textFontSize = CGFloat(11) {
         didSet {
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
     public var textAlignment = NSTextAlignment.center {
         didSet {
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
     public var maximumNameLength = 0 {
         didSet {
-            drawCurricula()
+            drawTimeTable()
         }
     }
     
@@ -169,10 +170,10 @@ public class CurriculaTable: UIView {
         
         collectionView.frame = bounds
         collectionView.reloadData()
-        drawCurricula()
+        drawTimeTable()
     }
     
-    private func drawCurricula() {
+    private func drawTimeTable() {
         for subview in subviews {
             if !(subview is UICollectionView) {
                 subview.removeFromSuperview()

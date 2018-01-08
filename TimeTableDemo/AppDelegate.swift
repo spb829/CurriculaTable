@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  CurriculaTableDemo
+//  TimeTableDemo
 //
 //  Created by Sun Yaozhu on 2016-09-10.
 //  Copyright © 2016 Sun Yaozhu. All rights reserved.

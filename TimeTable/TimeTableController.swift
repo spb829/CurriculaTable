@@ -1,6 +1,6 @@
 //
-//  CurriculaTableController.swift
-//  CurriculaTable
+//  TimeTableController.swift
+//  TimeTable
 //
 //  Created by Sun Yaozhu on 2016-09-10.
 //  Copyright © 2016 Sun Yaozhu. All rights reserved.
@@ -10,26 +10,26 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class CurriculaTableController: UIViewController {
+class TimeTableController: UIViewController {
     
-    weak var curriculaTable: CurriculaTable!
+    weak var curriculaTable: TimeTable!
     
     weak var collectionView: UICollectionView! {
         didSet {
-            collectionView.register(CurriculaTableCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+            collectionView.register(TimeTableCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         }
     }
     
 }
 
-extension CurriculaTableController: UICollectionViewDataSource {
+extension TimeTableController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (curriculaTable.numberOfPeriods + 1) * 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CurriculaTableCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TimeTableCell
         cell.backgroundColor = curriculaTable.symbolsBgColor
         cell.layer.borderWidth = curriculaTable.borderWidth
         cell.layer.borderColor = curriculaTable.borderColor.cgColor
@@ -49,7 +49,7 @@ extension CurriculaTableController: UICollectionViewDataSource {
     
 }
 
-extension CurriculaTableController: UICollectionViewDelegateFlowLayout {
+extension TimeTableController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {

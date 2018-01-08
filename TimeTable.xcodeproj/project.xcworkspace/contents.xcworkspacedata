@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CurriculaTable.xcodeproj">
+      location = "self:/Users/Eric/workspace/TimeTable-iOS/TimeTable.xcodeproj">
    </FileRef>
 </Workspace>
